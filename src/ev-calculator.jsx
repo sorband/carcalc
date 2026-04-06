@@ -2,22 +2,22 @@ import { useState, useMemo, useCallback } from "react";
 import { Trash2, Plus, Zap, Fuel, Settings, ChevronDown, ChevronUp, BarChart3, PoundSterling } from "lucide-react";
 
 const DEFAULT_CARS = [
-  { id: 1, name: "Lucid Air", type: "ev", cityKwh: 13.0, motorwayKwh: 16.0 },
-  { id: 2, name: "Kia EV6", type: "ev", cityKwh: 15.0, motorwayKwh: 19.0 },
-  { id: 3, name: "Hyundai Ioniq 5", type: "ev", cityKwh: 15.5, motorwayKwh: 20.0 },
-  { id: 4, name: "BMW iX (xDrive50)", type: "ev", cityKwh: 17.0, motorwayKwh: 22.0 },
-  { id: 5, name: "Genesis Electrified GV70", type: "ev", cityKwh: 17.5, motorwayKwh: 22.5 },
-  { id: 6, name: "Mercedes EQS SUV", type: "ev", cityKwh: 18.0, motorwayKwh: 23.5 },
-  { id: 7, name: "BMW i7", type: "ev", cityKwh: 18.5, motorwayKwh: 23.0 },
-  { id: 8, name: "Kia EV9", type: "ev", cityKwh: 18.0, motorwayKwh: 24.5 },
-  { id: 9, name: "Audi Q8 e-tron", type: "ev", cityKwh: 19.0, motorwayKwh: 24.0 },
-  { id: 10, name: "Ford Focus 1.0 EcoBoost", type: "petrol", cityL: 7.8, motorwayL: 5.6 },
-  { id: 11, name: "Volvo EX30", type: "ev", cityKwh: 12.2, motorwayKwh: 19.7 },
-  { id: 12, name: "Volvo EX40", type: "ev", cityKwh: 13.3, motorwayKwh: 22.1 },
-  { id: 13, name: "Polestar 2", type: "ev", cityKwh: 12.3, motorwayKwh: 18.9 },
-  { id: 14, name: "Kia EV3 (Standard Range)", type: "ev", cityKwh: 13.5, motorwayKwh: 18.0 },
-  { id: 15, name: "Kia EV3 (Long Range)", type: "ev", cityKwh: 14.0, motorwayKwh: 18.5 },
-  { id: 16, name: "Kia EV5", type: "ev", cityKwh: 16.0, motorwayKwh: 22.0 },
+  { id: 1,  name: "Lucid Air",                   type: "ev",     cityKwh: 13.0, motorwayKwh: 16.0, priceGBP: 69900,  rangeKm: 550 },
+  { id: 2,  name: "Kia EV6",                     type: "ev",     cityKwh: 15.0, motorwayKwh: 19.0, priceGBP: 45575,  rangeKm: 400 },
+  { id: 3,  name: "Hyundai Ioniq 5",             type: "ev",     cityKwh: 15.5, motorwayKwh: 20.0, priceGBP: 40000,  rangeKm: 370 },
+  { id: 4,  name: "BMW iX (xDrive50)",           type: "ev",     cityKwh: 17.0, motorwayKwh: 22.0, priceGBP: 87000,  rangeKm: 430 },
+  { id: 5,  name: "Genesis Electrified GV70",    type: "ev",     cityKwh: 17.5, motorwayKwh: 22.5, priceGBP: 65915,  rangeKm: 360 },
+  { id: 6,  name: "Mercedes EQS SUV",            type: "ev",     cityKwh: 18.0, motorwayKwh: 23.5, priceGBP: 105000, rangeKm: 390 },
+  { id: 7,  name: "BMW i7",                      type: "ev",     cityKwh: 18.5, motorwayKwh: 23.0, priceGBP: 105000, rangeKm: 520 },
+  { id: 8,  name: "Kia EV9",                     type: "ev",     cityKwh: 18.0, motorwayKwh: 24.5, priceGBP: 64000,  rangeKm: 430 },
+  { id: 9,  name: "Audi Q8 e-tron",              type: "ev",     cityKwh: 19.0, motorwayKwh: 24.0, priceGBP: 74000,  rangeKm: 380 },
+  { id: 10, name: "Ford Focus 1.0 EcoBoost",     type: "petrol", cityL: 7.8,    motorwayL: 5.6,    priceGBP: 23500,  rangeKm: 600 },
+  { id: 11, name: "Volvo EX30",                  type: "ev",     cityKwh: 12.2, motorwayKwh: 19.7, priceGBP: 33000,  rangeKm: 280 },
+  { id: 12, name: "Volvo EX40",                  type: "ev",     cityKwh: 13.3, motorwayKwh: 22.1, priceGBP: 42000,  rangeKm: 350 },
+  { id: 13, name: "Polestar 2",                  type: "ev",     cityKwh: 12.3, motorwayKwh: 18.9, priceGBP: 44950,  rangeKm: 430 },
+  { id: 14, name: "Kia EV3 (Standard Range)",    type: "ev",     cityKwh: 13.5, motorwayKwh: 18.0, priceGBP: 32995,  rangeKm: 300 },
+  { id: 15, name: "Kia EV3 (Long Range)",        type: "ev",     cityKwh: 14.0, motorwayKwh: 18.5, priceGBP: 37500,  rangeKm: 480 },
+  { id: 16, name: "Kia EV5",                     type: "ev",     cityKwh: 16.0, motorwayKwh: 22.0, priceGBP: 39000,  rangeKm: 450 },
 ];
 
 let nextId = 17;
@@ -172,7 +172,7 @@ export default function App() {
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.76rem", minWidth: 620 }}>
             <thead>
               <tr>
-                {["Vehicle", "City Cost", "Motorway Cost", "Year Total", "vs Cheapest Petrol", ""].map((h, i) => (
+                {["Vehicle", "Price", "Range", "City Cost", "Motorway Cost", "Year Total", "vs Cheapest Petrol", ""].map((h, i) => (
                   <th key={i} style={{
                     background: "#1e2536", padding: "10px 8px",
                     textAlign: i === 0 ? "left" : "center",
@@ -228,6 +228,12 @@ export default function App() {
                           transition: "width 0.4s ease",
                         }} />
                       </div>
+                    </td>
+                    <td style={{ padding: "10px 8px", textAlign: "center", fontFamily: "monospace", color: "#a0adc0", whiteSpace: "nowrap" }}>
+                      {car.priceGBP != null ? `~£${(car.priceGBP / 1000).toFixed(0)}k` : "—"}
+                    </td>
+                    <td style={{ padding: "10px 8px", textAlign: "center", fontFamily: "monospace", color: "#a0adc0", whiteSpace: "nowrap" }}>
+                      {car.rangeKm != null ? `~${car.rangeKm}km` : "—"}
                     </td>
                     <td style={{ padding: "10px 8px", textAlign: "center", fontFamily: "monospace", color: "#a0adc0" }}>
                       £{car.cityCost.toFixed(0)}
