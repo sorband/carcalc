@@ -15,9 +15,12 @@ const DEFAULT_CARS = [
   { id: 11, name: "Volvo EX30", type: "ev", cityKwh: 12.2, motorwayKwh: 19.7 },
   { id: 12, name: "Volvo EX40", type: "ev", cityKwh: 13.3, motorwayKwh: 22.1 },
   { id: 13, name: "Polestar 2", type: "ev", cityKwh: 12.3, motorwayKwh: 18.9 },
+  { id: 14, name: "Kia EV3 (Standard Range)", type: "ev", cityKwh: 13.5, motorwayKwh: 18.0 },
+  { id: 15, name: "Kia EV3 (Long Range)", type: "ev", cityKwh: 14.0, motorwayKwh: 18.5 },
+  { id: 16, name: "Kia EV5", type: "ev", cityKwh: 16.0, motorwayKwh: 22.0 },
 ];
 
-let nextId = 14;
+let nextId = 17;
 
 export default function App() {
   const [cars, setCars] = useState(DEFAULT_CARS);
