@@ -2,15 +2,8 @@ import { useState, useMemo, useCallback } from "react";
 import { Trash2, Plus, Zap, Fuel, Settings, ChevronDown, ChevronUp, BarChart3, PoundSterling } from "lucide-react";
 
 const DEFAULT_CARS = [
-  { id: 1,  name: "Lucid Air",                   type: "ev",     cityKwh: 13.0, motorwayKwh: 16.0, priceGBP: 69900,  rangeKm: 550 },
   { id: 2,  name: "Kia EV6",                     type: "ev",     cityKwh: 15.0, motorwayKwh: 19.0, priceGBP: 45575,  rangeKm: 400 },
   { id: 3,  name: "Hyundai Ioniq 5",             type: "ev",     cityKwh: 15.5, motorwayKwh: 20.0, priceGBP: 40000,  rangeKm: 370 },
-  { id: 4,  name: "BMW iX (xDrive50)",           type: "ev",     cityKwh: 17.0, motorwayKwh: 22.0, priceGBP: 87000,  rangeKm: 430 },
-  { id: 5,  name: "Genesis Electrified GV70",    type: "ev",     cityKwh: 17.5, motorwayKwh: 22.5, priceGBP: 65915,  rangeKm: 360 },
-  { id: 6,  name: "Mercedes EQS SUV",            type: "ev",     cityKwh: 18.0, motorwayKwh: 23.5, priceGBP: 105000, rangeKm: 390 },
-  { id: 7,  name: "BMW i7",                      type: "ev",     cityKwh: 18.5, motorwayKwh: 23.0, priceGBP: 105000, rangeKm: 520 },
-  { id: 8,  name: "Kia EV9",                     type: "ev",     cityKwh: 18.0, motorwayKwh: 24.5, priceGBP: 64000,  rangeKm: 430 },
-  { id: 9,  name: "Audi Q8 e-tron",              type: "ev",     cityKwh: 19.0, motorwayKwh: 24.0, priceGBP: 74000,  rangeKm: 380 },
   { id: 10, name: "Ford Focus 1.0 EcoBoost",     type: "petrol", cityL: 7.8,    motorwayL: 5.6,    priceGBP: 23500,  rangeKm: 600 },
   { id: 11, name: "Volvo EX30",                  type: "ev",     cityKwh: 12.2, motorwayKwh: 19.7, priceGBP: 33000,  rangeKm: 280 },
   { id: 12, name: "Volvo EX40",                  type: "ev",     cityKwh: 13.3, motorwayKwh: 22.1, priceGBP: 42000,  rangeKm: 350 },
