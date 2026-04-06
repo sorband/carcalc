@@ -30,4 +30,4 @@ Consumption figures should be **real-world estimates**, not official WLTP figure
 
 ### Deployment
 
-GitHub Pages via `.github/workflows/deploy.yml`. Note: the workflow currently triggers on the `master` branch, but the repo's default branch is `main`.
+GitHub Pages via `.github/workflows/deploy.yml`. Deploys automatically on every push to `main`.
